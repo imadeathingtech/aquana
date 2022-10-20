@@ -1,13 +1,15 @@
 services:
   api:
+    image: imadeathingtech/aquana-api:${API_VERSION}
     build:
       context: ./
-      dockerfile: ./api/Dockerfile.prod
+      dockerfile: ./api/Dockerfile
     ports:
       - "3000:3000"
     command: "npm run start"
 
   frontend:
+    image: imadeathingtech/aquana-frontend:${FRONTEND_VERSION}
     build:
       context: ./
       dockerfile: ./frontend/Dockerfile.prod
