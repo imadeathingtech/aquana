@@ -1,0 +1,48 @@
+video {
+  width: 100%;
+}
+
+canvas {
+  width: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+.capture-container {
+  aspect-ratio: 16/9;
+  position: relative;
+  background: #eee;
+  --border: 2px solid var(--color-primary);
+
+  .rect {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+  }
+  .rect-top-left {
+    top: 20px;
+    left: 20px;
+    border-top: var(--border);
+    border-left: var(--border);
+  }
+  .rect-top-right {
+    top: 20px;
+    right: 20px;
+    border-top: var(--border);
+    border-right: var(--border);
+  }
+  .rect-bottom-left {
+    bottom: 20px;
+    left: 20px;
+    border-bottom: var(--border);
+    border-left: var(--border);
+  }
+  .rect-bottom-right {
+    bottom: 20px;
+    right: 20px;
+    border-bottom: var(--border);
+    border-right: var(--border);
+  }
+}

@@ -1,0 +1,103 @@
+<ng-container *ngIf="plant">
+  <header style="background-image: url('{{ plant.image }}')"></header>
+  <div class="content">
+    <a [routerLink]="['/plants', plant?.id]" class="back-link"></a>
+    <h1>Edit Plant</h1>
+    <form [formGroup]="editForm" (ngSubmit)="updatePlant()">
+      <div class="form-group">
+        <label for="name">Plant Name</label>
+        <input type="text" class="form-control" formControlName="name" />
+        <div
+          *ngIf="name?.invalid && (name?.dirty || name?.touched)"
+          class="error-display"
+        >
+          <div *ngIf="name?.errors?.['required']">Name is required.</div>
+          <div *ngIf="name?.errors?.['minlength']">
+            Name must be at least 4 characters long.
+          </div>
+          <div *ngIf="name?.errors?.['maxlength']">
+            Name can be 55 characters maximum.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea
+          class="form-control"
+          formControlName="description"
+          id=""
+          cols="30"
+          rows="10"
+        ></textarea>
+        <div
+          *ngIf="
+            description?.invalid && (description?.dirty || description?.touched)
+          "
+          class="error-display"
+        >
+          <div *ngIf="description?.errors?.['maxlength']">
+            Description can be 255 characters maximum.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="days_between_watering">Water Interval</label>
+        <select
+          class="form-control"
+          formControlName="days_between_watering"
+          id="days_between_watering"
+          (change)="selectDaysBetweenWatering()"
+        >
+          <option *ngFor="let option of wateringOptions" [ngValue]="option">
+            {{ option }}
+          </option>
+          <option ngValue="Custom interval">Custom interval</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <ng-container *ngIf="otherWateringOption">
+          <input
+            type="number"
+            formControlName="days_between_watering_custom"
+            class="form-control"
+            placeholder="e.g. 42"
+          />
+        </ng-container>
+      </div>
+
+      <div class="form-group">
+        <label for="days_between_fertilizing">Fertilizer Interval</label>
+        <select
+          class="form-control"
+          formControlName="days_between_fertilizing"
+          id="days_between_fertilizing"
+          (change)="selectDaysBetweenFertilizing()"
+        >
+          <option *ngFor="let option of fertilizerOptions" [ngValue]="option">
+            {{ option }}
+          </option>
+          <option ngValue="Custom interval">Custom interval</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <ng-container *ngIf="otherFertilizingOption">
+          <input
+            type="number"
+            formControlName="days_between_fertilizing_custom"
+            class="form-control"
+            placeholder="e.g. 42"
+          />
+        </ng-container>
+      </div>
+      <div class="button-group">
+        <button type="button" class="btn delete" (click)="confirmDeletion()">
+          Remove Plant
+        </button>
+        <button type="submit" class="btn primary">Save Plant</button>
+      </div>
+    </form>
+  </div>
+</ng-container>

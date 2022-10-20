@@ -1,0 +1,39 @@
+<nav class="main-navigation">
+  <div class="container">
+    <img src="/assets/img/logo.svg" alt="Aquana Logo" routerLink="/" />
+    <h1>Aquana</h1>
+    <div class="hamburger" (click)="toggleNav()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+</nav>
+<div class="sideNav" #nav>
+  <h2>Menu</h2>
+  <span class="close" (click)="toggleNav()"></span>
+  <ul>
+    <li>
+      <a routerLink="/" (click)="toggleNav()">Home</a>
+    </li>
+
+    <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
+      <li>
+        <a routerLink="profile" (click)="toggleNav()">
+          <ng-container *ngIf="auth.user$ | async as user">
+            {{ user.name }}s
+          </ng-container>
+          Profile</a
+        >
+      </li>
+      <li>
+        <a (click)="auth.logout({ returnTo: document.location.origin })">
+          Log out
+        </a>
+      </li>
+    </ng-container>
+    <ng-template #loggedOut>
+      <li><a (click)="auth.loginWithRedirect()">Log in</a></li>
+    </ng-template>
+  </ul>
+</div>

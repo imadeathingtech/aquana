@@ -1,0 +1,22 @@
+progress[value] {
+  width: 100%;
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+  appearance: none;
+  height: 10px;
+}
+
+progress[value]::-webkit-progress-bar {
+  background-color: #bae6d9;
+  border-radius: 5px;
+}
+
+progress[value]::-webkit-progress-value {
+  background: var(--color-primary);
+  border-radius: 5px;
+  background-size: 35px 20px, 100% 100%, 100% 100%;
+}
+:host {
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,38 @@
+.alerts-container {
+  position: fixed;
+  top: var(--nav-height);
+  z-index: 20;
+  width: 100%;
+  left: 0;
+}
+
+.alert {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  color: #fff;
+  left: 0;
+  width: 100%;
+  box-shadow: var(--box-shadow);
+
+  &.success {
+    background: var(--color-primary);
+  }
+  &.error {
+    background: var(--color-tertiary);
+  }
+  &.info {
+    background: lightblue;
+    color: var(--color-text);
+    .close {
+      color: var(--color-text);
+    }
+  }
+  .close {
+    background: transparent;
+    border: 0;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #fff;
+  }
+}

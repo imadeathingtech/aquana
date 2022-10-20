@@ -1,0 +1,35 @@
+<ng-container *ngIf="plant$ | async as plant">
+  <header style="background-image: url('{{ plant.image }}')"></header>
+  <div class="content">
+    <a routerLink="/" class="back-link"></a>
+    <h2>{{ plant.name }}</h2>
+    <p>{{ plant.description }}</p>
+    <h3>Watering Status</h3>
+    <div class="plant-status">
+      <aquana-plant-status-bar
+        [metricInterval]="plant.days_between_watering"
+        [metricLastUpdated]="plant.last_watered"
+      ></aquana-plant-status-bar>
+      <button class="btn primary" (click)="waterPlant(plant)">
+        Water plant
+      </button>
+    </div>
+    <h3>Fertilization Status</h3>
+    <div class="plant-status">
+      <aquana-plant-status-bar
+        [metricInterval]="plant.days_between_fertilizing"
+        [metricLastUpdated]="plant.last_fertilized"
+      ></aquana-plant-status-bar>
+      <button class="btn primary" (click)="fertilizePlant(plant)">
+        Fertilize plant
+      </button>
+    </div>
+  </div>
+
+  <button
+    class="btn primary edit-plant-button"
+    [routerLink]="['/plants', plant?.id, 'edit']"
+  >
+    Edit plant
+  </button>
+</ng-container>

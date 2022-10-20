@@ -1,0 +1,12 @@
+<ng-container *ngIf="plants$ | async as plants">
+  <aquana-plant-list-item
+    *ngFor="let plant of plants"
+    [plant]="plant"
+  ></aquana-plant-list-item>
+  <button
+    class="btn primary add-plant-button"
+    routerLink="plants/capture-image"
+  >
+    Add plant
+  </button>
+</ng-container>

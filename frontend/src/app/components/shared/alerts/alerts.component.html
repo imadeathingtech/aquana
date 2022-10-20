@@ -1,0 +1,16 @@
+<ng-container *ngIf="alerts?.length">
+  <div class="alerts-container">
+    <div
+      *ngFor="let alert of alerts; let index = index"
+      [ngClass]="{
+        alert: true,
+        success: alert.type === alertType.SUCCESS,
+        error: alert.type === alertType.ERROR,
+        info: alert.type === alertType.INFO
+      }"
+    >
+      {{ alert.message }}
+      <button class="close" (click)="removeAlert(alert.id)">X</button>
+    </div>
+  </div>
+</ng-container>

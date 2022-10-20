@@ -1,0 +1,17 @@
+<div class="plant-item" [routerLink]="['/plants', plant?.id]">
+  <img src="{{ plant.image }}" alt="{{ plant?.name }}" />
+  <div class="plant-info">
+    <h2>{{ plant?.name }}</h2>
+    <p>{{ plant?.description }}</p>
+    <h3>Watering Status</h3>
+    <aquana-plant-status-bar
+      [metricInterval]="plant.days_between_watering"
+      [metricLastUpdated]="plant.last_watered"
+    ></aquana-plant-status-bar>
+    <h3>Fertization Status</h3>
+    <aquana-plant-status-bar
+      [metricInterval]="plant.days_between_fertilizing"
+      [metricLastUpdated]="plant.last_fertilized"
+    ></aquana-plant-status-bar>
+  </div>
+</div>

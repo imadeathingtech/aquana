@@ -1,0 +1,62 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--color-text);
+  font-family: var(--font-family-body);
+  margin: 0;
+}
+
+main {
+  padding-top: var(--nav-height);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--color-primary);
+  font-family: var(--font-family-headlines);
+}
+
+h1 {
+  font-size: 1.75rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+h3 {
+  font-size: 1rem;
+}
+
+.btn {
+  padding: 0.75rem 2.5rem;
+  border: 0;
+  border-radius: 2rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: var(--box-shadow);
+  &:hover {
+    filter: brightness(1.2);
+  }
+}
+.primary {
+  background: var(--color-primary);
+}
+
+.secondary {
+  background: var(--color-secondary);
+}
+
+.delete {
+  box-shadow: none;
+  background: transparent;
+  color: var(--color-tertiary);
+  padding-left: 0;
+}

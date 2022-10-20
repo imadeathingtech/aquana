@@ -1,0 +1,43 @@
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.error-display {
+  color: red;
+}
+
+label {
+  font-family: var(--font-family-headlines);
+  font-weight: 400;
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+  display: inline-block;
+}
+
+.form-control {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: 5px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: var(--color-text);
+  font-family: var(--font-family-body);
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+  }
+  &::placeholder {
+    color: #bbb;
+  }
+}
+
+input[type="checkbox"] {
+  zoom: 1.5;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+}
